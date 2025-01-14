@@ -1,0 +1,44 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name nadeko.online;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name nadeko.online;
+
+    ssl_certificate /etc/letsencrypt/live/nadeko.online/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/nadeko.online/privkey.pem;
+
+    # Корневая директория для статических файлов
+    root /var/www/nadeko.online;
+    index index.html;
+
+    # Настройка для Single Page Application
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # API запросы
+    location /api/ {
+        proxy_pass http://localhost:8000/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    # WebSocket
+    location /ws {
+        proxy_pass http://localhost:8000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_read_timeout 86400;
+    }
+}

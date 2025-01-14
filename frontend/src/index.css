@@ -1,0 +1,129 @@
+:root {
+  --primary-color: #228be6;
+  --background-color: #f8f9fa;
+  --border-color: #dee2e6;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+}
+
+/* Chat styles */
+.chat-container {
+  height: calc(100vh - 120px);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px 0;
+}
+
+.message-bubble.sent {
+  background-color: var(--primary-color);
+  color: white;
+  margin-left: auto;
+}
+
+.message-bubble.received {
+  background-color: #f1f3f5;
+  color: black;
+}
+
+/* User list styles */
+.user-list {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-item {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.user-item:hover {
+  background-color: #f8f9fa;
+}
+
+.user-item.selected {
+  background-color: #e9ecef;
+}
+
+/* Form styles */
+.auth-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Notification styles */
+.notification-badge {
+  background-color: #fa5252;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+/* Online status styles */
+.online-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #40c057;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.offline-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #868e96;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-container {
+    height: calc(100vh - 80px);
+  }
+
+  .message-bubble {
+    max-width: 85%;
+  }
+}
