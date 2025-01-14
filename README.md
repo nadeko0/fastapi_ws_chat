@@ -478,3 +478,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Voice and video calls
 - Message reactions and replies
 - Mobile applications
+
+## 🚀 Production Deployment
+
+For detailed deployment instructions, including server setup, nginx configuration, and maintenance procedures, please refer to our [Deployment Guide](DEPLOYMENT.md).
+
+Key deployment files:
+- `nginx-config.txt`: Production-ready nginx configuration template
+- `.env.example`: Environment variable template
+- `COMMIT_TEMPLATE.md`: Git commit message guidelines
