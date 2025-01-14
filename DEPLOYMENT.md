@@ -14,7 +14,7 @@ This guide provides detailed instructions for deploying the FastAPI WebSocket Ch
 
 1. Clone and set up the project:
    ```bash
-   git clone https://github.com/yourusername/fastapi-ws-chat.git
+   git clone https://github.com/nadeko0/fastapi-ws-chat.git
    cd fastapi-ws-chat
    ```
 
